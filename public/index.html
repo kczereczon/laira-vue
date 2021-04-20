@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="manifest" href="manifest.json">
+    <meta name=theme-color content=#93C5FD>
   </head>
   <body class="bg-blue-300 h-full">
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app" class="h-screen"></div>
+    <div id="app" class="h-full"></div>
     <!-- built files will be auto injected -->
   </body>
 </html>

@@ -2,6 +2,7 @@ import { createApp, h } from 'vue'
 import './assets/tailwind.css'
 import LoginPage from "./pages/LoginPage"
 import HomePage from "./pages/HomePage"
+import './registerServiceWorker'
 
 const NotFoundComponent = { template: '<p>Page not found</p>' }
 const AboutComponent = { template: '<p>About page</p>' }
