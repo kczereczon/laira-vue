@@ -18,7 +18,7 @@
         />
       </svg>
     </span>
-    <span class="pl-7 h-5 text-xs font-extralight">{{walk}} h</span>
+    <span class="pl-7 h-5 text-xs font-extralight">{{ walk }}</span>
   </div>
   <div class="relative -mt-2">
     <span class="absolute inset-y-0 left-0 flex items-center">
@@ -43,7 +43,7 @@
         />
       </svg>
     </span>
-    <span class="pl-7 h-5 text-xs font-extralight">{{car}} h</span>
+    <span class="pl-7 h-5 text-xs font-extralight">{{ car }}</span>
   </div>
   <div class="relative -mt-2">
     <span class="absolute inset-y-0 left-0 flex items-center">
@@ -60,20 +60,55 @@
         />
       </svg>
     </span>
-    <span class="pl-7 h-5 text-xs font-extralight">{{bike}} h</span>
+    <span class="pl-7 h-5 text-xs font-extralight">{{ bike }}</span>
   </div>
+  <span class="text-xs font-thin text-grey-800">Odległość: <span class="font-normal">{{distanceFix(parseInt(distance))}}</span></span>
 </template>
 
 <script>
 export default {
-    props: ["distance"],
-    data: (instance) => {
-        return {
-            car: (instance.distance/70).toFixed(2),
-            walk: (instance.distance/5).toFixed(2),
-            bike: (instance.distance/20).toFixed(2)
+  props: ["distance"],
+  data() {
+    return {
+      car: this.convertToTime(this.distance / 70000),
+      walk: this.convertToTime(this.distance / 5000),
+      bike: this.convertToTime(this.distance / 20000),
+    };
+  },
+  methods: {
+    convertToTime: (time) => {
+      var hrs = parseInt(Number(time));
+      var min = Math.round((Number(time) - hrs) * 60);
+      let string = "";
+      if (hrs > 1) {
+        string += hrs + " h ";
+      }
+      if (min > 0) {
+        string += min + " min"
+      } if( hrs < 1 && min < 1) {
+          string += ">1 min"
+      }
+      return string;
+    },
+    distanceFix: (distance) => {
+        let km = parseInt(distance / 1000);
+        let m = distance - km * 1000;
+
+        let distanceString = "";
+
+        if(km > 0) {
+            distanceString += km +" km ";
         }
+
+        if(m > 0) {
+            distanceString += m +" m";
+        } else if(km < 1 && m < 1) {
+            distanceString += ">1 m"
+        }
+        
+        return distanceString;
     }
+  },
 };
 </script>
 

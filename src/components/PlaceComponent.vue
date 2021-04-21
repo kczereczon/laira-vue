@@ -1,24 +1,55 @@
 <template>
-  <div class="w-32 h-52 shadow rounded flex flex-col">
-    <img
-      class="rounded-t"
-      src="https://www.zlotaproporcja.pl/wp-content/uploads/2017/04/Zamek-%C5%81apalice-0177.jpg"
+  <div class="w-48 h-80 shadow rounded flex flex-col">
+    <div
+      class="rounded-t w-full h-32"
+      :style="{
+        backgroundImage: 'url(' + place.image + ')',
+        backgroundSize: 'cover',
+      }"
       alt=""
     />
     <div class="p-2">
-      <h1 class="text-blue-900 font-bold">Zamek</h1>
-      <span class="text-blue-900 font-light text-xs"> tutaj będzie opis </span>
-      <Rating :stars="4"/>
-      <Distance :distance="30"/>
+      <div class="h-20 flex flex-col">
+        <span class="text-blue-900 font-bold">{{ place.name }}</span>
+        <span class="text-blue-300 font-extralight text-xs">{{getAddress(place.address)}}</span>
+        <span class="text-blue-900 font-light text-sm">
+          tutaj będzie opis
+        </span>
+      </div>
+
+      <Rating class="mt-5 mb-3" :stars="Math.round(place.rating)" />
+      <Distance class="mt-2" :distance="place.distance" />
     </div>
   </div>
 </template>
 
 <script>
 import Rating from "./place/Rating";
-import Distance from "./place/Distance"
+import Distance from "./place/Distance";
 export default {
-  components: {Rating, Distance} 
+  components: { Rating, Distance },
+  props: ["place"],
+  methods: {
+    getAddress: (address) => {
+      let addressString = "";
+      if(address.street) {
+        addressString += address.street
+        if(address.number) {
+          addressString += " " + address.number + ", "
+        } else {
+          addressString += ", "
+        }
+      }
+      if(address.postal_code) {
+        addressString += address.postal_code + " "
+      }
+      if(address.city) {
+        addressString +=  address.city
+      }
+
+      return addressString;
+    }
+  }
 };
 </script>
 

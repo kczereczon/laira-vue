@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white h-full w-full">
+  <div class="bg-white h-screen w-full">
     <div class="rounded-b-lg w-full sticky top-0 z-50">
       <div class="bg-blue-200 p-3 rounded-b-lg">
         <svg
@@ -36,52 +36,7 @@
         style="scrollbar: none"
         class="py-2 grid px-1 overflow-x-scroll grid-flow-col gap-4 no-scrollbar"
       >
-        <PlaceComponent />
-        <PlaceComponent />
-        <PlaceComponent />
-        <PlaceComponent />
-        <PlaceComponent />
-        <PlaceComponent />
-      </div>
-      <div class="sticky top-40 z-50 bg-white">
-          <h1 class="text-blue-900 text-lg font-bold mt-5">Podobne do ostatnio przeglądanych</h1>
-      </div>
-      <div
-        style="scrollbar: none"
-        class="py-2 grid px-1 overflow-x-scroll grid-flow-col gap-4 no-scrollbar"
-      >
-        <PlaceComponent />
-        <PlaceComponent />
-        <PlaceComponent />
-        <PlaceComponent />
-        <PlaceComponent />
-        <PlaceComponent />
-      </div>
-      <div class="sticky top-40 z-50 bg-white">
-          <h1 class="text-blue-900 text-lg font-bold mt-5">To może ci się spodobać</h1>
-      </div>
-      <div
-        style="scrollbar: none"
-        class="py-2 grid px-1 overflow-x-scroll grid-flow-col gap-4 no-scrollbar"
-      >
-        <PlaceComponent />
-        <PlaceComponent />
-        <PlaceComponent />
-        <PlaceComponent />
-        <PlaceComponent />
-        <PlaceComponent />
-      </div>
-      <h1 class="text-blue-900 text-lg font-bold mt-5">Twoi oberwowani odwiedzili</h1>
-      <div
-        style="scrollbar: none"
-        class="py-2 grid px-1 overflow-x-scroll grid-flow-col gap-4 no-scrollbar"
-      >
-        <PlaceComponent />
-        <PlaceComponent />
-        <PlaceComponent />
-        <PlaceComponent />
-        <PlaceComponent />
-        <PlaceComponent />
+        <PlaceComponent v-for="place in places" :key="place.id" :place="place"/>
       </div>
     </div>
   </div>
@@ -89,10 +44,19 @@
 
 <script>
 import PlaceComponent from "../components/PlaceComponent";
+import axios from "axios";
 export default {
   components: {
     PlaceComponent,
   },
+  data: () => {
+    return {
+      places: []
+    }
+  },
+  async mounted () {
+    this.places = (await axios.get('http://192.168.1.67:3333/api/places/around')).data;
+  }
 };
 </script>
 
