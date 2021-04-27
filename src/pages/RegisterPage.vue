@@ -18,72 +18,42 @@
           fill="rgba(30, 58, 138)"
         />
       </svg>
-      <div class="relative w-10/12 mt-5">
-        <span class="absolute inset-y-0 left-0 flex items-center pl-2">
-          <svg
-            width="26"
-            height="26"
-            viewBox="0 0 26 26"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g clip-path="url(#clip0)">
-              <path
-                d="M12.8147 12.5243C14.5353 12.5243 16.0253 11.9072 17.2426 10.6896C18.46 9.47225 19.0771 7.98274 19.0771 6.26194C19.0771 4.54173 18.46 3.05202 17.2424 1.83427C16.0249 0.617109 14.5351 0 12.8147 0C11.0939 0 9.6044 0.617109 8.38704 1.83447C7.16968 3.05182 6.55237 4.54153 6.55237 6.26194C6.55237 7.98274 7.16968 9.47245 8.38724 10.6898C9.6048 11.907 11.0945 12.5243 12.8147 12.5243Z"
-                fill="#93C5FD"
-              />
-              <path
-                d="M23.7722 19.9927C23.7371 19.486 23.666 18.9334 23.5615 18.3498C23.456 17.7619 23.3201 17.2061 23.1574 16.698C22.9894 16.173 22.7609 15.6545 22.4784 15.1576C22.1853 14.6418 21.8409 14.1927 21.4545 13.8232C21.0504 13.4366 20.5557 13.1257 19.9836 12.899C19.4135 12.6734 18.7817 12.5592 18.1059 12.5592C17.8405 12.5592 17.5838 12.6681 17.0881 12.9908C16.783 13.1898 16.4261 13.4199 16.0278 13.6744C15.6872 13.8914 15.2258 14.0947 14.6559 14.2788C14.0999 14.4587 13.5354 14.55 12.9782 14.55C12.421 14.55 11.8566 14.4587 11.3 14.2788C10.7307 14.0949 10.2693 13.8916 9.92912 13.6746C9.53458 13.4225 9.17752 13.1924 8.86787 12.9906C8.37276 12.6679 8.11588 12.559 7.85046 12.559C7.17444 12.559 6.54285 12.6734 5.97295 12.8992C5.40126 13.1255 4.90634 13.4364 4.50188 13.8234C4.11566 14.1931 3.7711 14.642 3.47832 15.1576C3.19604 15.6545 2.96753 16.1728 2.79932 16.6982C2.63686 17.2062 2.50098 17.7619 2.39545 18.3498C2.29091 18.9326 2.21989 19.4854 2.18478 19.9933C2.15027 20.4908 2.13281 21.0071 2.13281 21.5286C2.13281 22.8858 2.56425 23.9845 3.41504 24.7948C4.25531 25.5944 5.36714 26.0001 6.71919 26.0001H19.2384C20.5904 26.0001 21.7018 25.5946 22.5423 24.7948C23.3933 23.9851 23.8247 22.8862 23.8247 21.5284C23.8245 21.0045 23.8069 20.4878 23.7722 19.9927Z"
-                fill="#93C5FD"
-              />
-            </g>
-            <defs>
-              <clipPath id="clip0">
-                <rect width="26" height="26" fill="white" />
-              </clipPath>
-            </defs>
-          </svg>
-        </span>
-        <input
-          class="rounded py-2 pl-10 h-10 w-full text-blue-200 font-normal font-sans bg-blue-900 focus:outline-none focus:bg-white placeholder-opacity-40 placeholder-blue-200"
-          type="text"
-          placeholder="Username"
-          v-model="username"
-        />
-      </div>
-      <div class="relative w-10/12 mt-2">
-        <span class="absolute inset-y-0 left-0 flex items-center pl-2">
-          <svg
-            width="26"
-            height="26"
-            viewBox="0 0 26 26"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g clip-path="url(#clip0)">
-              <path
-                d="M23.5506 2.44977C20.2836 -0.817295 14.9679 -0.817244 11.7009 2.44982C9.46929 4.6814 8.69417 7.97005 9.66043 10.9537L0.22416 20.39C0.0813125 20.5329 0.000976562 20.7262 0.000976562 20.9286V25.2378C0.000976562 25.6588 0.341668 25.9995 0.762695 25.9995H5.07189C5.2742 25.9995 5.46763 25.9192 5.61043 25.7763L6.68755 24.6985C6.85193 24.5341 6.93226 24.3035 6.9055 24.0721L6.77159 22.9147L8.37536 22.7636C8.73987 22.7294 9.02775 22.4415 9.06198 22.077L9.213 20.4733L10.3705 20.6079C10.5854 20.6369 10.8019 20.5647 10.9648 20.4204C11.1269 20.2754 11.2199 20.0686 11.2199 19.8514V18.4331H12.6124C12.8148 18.4331 13.0082 18.3528 13.151 18.2099L15.1044 16.2824C18.0873 17.2494 21.319 16.5327 23.5506 14.2996C26.8177 11.0326 26.8177 5.71683 23.5506 2.44977ZM21.3957 7.83614C20.5046 8.7273 19.0555 8.7273 18.1644 7.83614C17.2732 6.94497 17.2732 5.49593 18.1644 4.60477C19.0555 3.71361 20.5046 3.71361 21.3957 4.60477C22.2869 5.49593 22.2868 6.94497 21.3957 7.83614Z"
-                fill="#93C5FD"
-              />
-            </g>
-            <defs>
-              <clipPath id="clip0">
-                <rect width="26" height="26" fill="white" />
-              </clipPath>
-            </defs>
-          </svg>
-        </span>
-        <input
-          class="rounded py-2 pl-10 h-10 w-full text-blue-200 font-normal font-sans bg-blue-900 focus:outline-none focus:bg-white placeholder-opacity-40 placeholder-blue-200"
-          type="password"
-          placeholder="Passoword"
-          v-model="password"
-        />
-      </div>
-        <div class="w-10/12 flex flex-row mt-5 gap-1">
-          <button @click="login" class="flex-1 py-1 rounded bg-white text-blue-900 font-bold focus:outline-none focus:bg-blue-900 focus:text-white">Zaloguj</button>
-          <button class="flex-1 py-1 rounded bg-white w-full text-blue-900 font-bold focus:outline-none focus:bg-blue-900 focus:text-white">Rejestruj</button>
-      </div>
+          <input
+        class="rounded py-2 mt-10 pl-10 h-10 w-full text-blue-200 font-normal font-sans bg-blue-900 focus:outline-none focus:bg-white placeholder-opacity-40 placeholder-blue-200"
+        type="text"
+        placeholder="Email"
+        v-model="email"
+        name="email"
+      />
+      <input
+        class="rounded py-2 mt-2 pl-10 h-10 w-full text-blue-200 font-normal font-sans bg-blue-900 focus:outline-none focus:bg-white placeholder-opacity-40 placeholder-blue-200"
+        type="text"
+        placeholder="Name"
+        v-model="name"
+        name="name"
+      />
+      <input
+        class="rounded py-2 mt-2 pl-10 h-10 w-full text-blue-200 font-normal font-sans bg-blue-900 focus:outline-none focus:bg-white placeholder-opacity-40 placeholder-blue-200"
+        type="password"
+        placeholder="Passoword"
+        v-model="password"
+        name="password"
+      />
+    </div>
+
+    <div class="p-5 flex flex-row mt-5 gap-1">
+      <button
+        @click="register"
+        class="flex-1 py-1 rounded bg-white w-full text-blue-900 font-bold focus:outline-none focus:bg-blue-900 focus:text-white"
+      >
+        Rejestruj
+      </button>
+      <button
+        @click="back"
+        class="flex-1 py-1 rounded bg-white w-full text-blue-900 font-bold focus:outline-none focus:bg-blue-900 focus:text-white"
+      >
+        Wróć
+      </button>
     </div>
   </div>
 </template>
@@ -93,16 +63,21 @@ export default {
   data: () => {
     return {
       password: "",
-      username: ""
-    }
+      email: "",
+      name: ""
+    };
   },
   methods: {
-    async login () {
-      let response = await this.$store.dispatch('login', {email: this.username, password: this.password});
+    async register() {
+      let response = await this.$store.dispatch("register", {
+        email: this.email,
+        password: this.password,
+        name: this.name
+      });
 
       console.log(response);
-    }
-  }
+    },
+  },
 };
 </script>
 
