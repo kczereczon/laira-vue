@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white h-screen w-full">
+  <div class="bg-white h-full w-full">
     <div class="rounded-b-lg w-full sticky top-0 z-50">
       <div class="bg-blue-200 p-3 rounded-b-lg">
         <svg
@@ -28,35 +28,37 @@
         </button>
       </div>
     </div>
-    <div class="container px-2 w-full relative">
-      <div class="sticky top-40 z-50 bg-white">
-          <h1 class="text-blue-900 text-lg font-bold mt-5">Co nowego w okolicy?</h1>
-      </div>
-      <div
-        style="scrollbar: none"
-        class="py-2 grid px-1 overflow-x-scroll grid-flow-col gap-4 no-scrollbar"
-      >
-        <PlaceComponent v-for="place in places" :key="place.id" :place="place"/>
-      </div>
-    </div>
+    <PlacesContainer :places="places" title="W twojej okolicy"/>
+    <PlacesContainer :places="suggested" title="Podobne do ostatnio ogladanych"/>
+
+    <PlacesContainer v-for="tag in tags" :key="tag.id" :places="tag.data" :title="'#'+tag.tag"/>
   </div>
 </template>
 
 <script>
-import PlaceComponent from "../components/PlaceComponent";
 import axios from "axios";
+import PlacesContainer from "../components/PlacesContainer"
 export default {
   components: {
-    PlaceComponent,
+    PlacesContainer
   },
   data: () => {
     return {
-      places: []
+      places: [],
+      suggested: [],
+      tags: []
     }
   },
   async mounted () {
-    this.places = (await axios.get('http://192.168.1.67:3333/api/places/around')).data;
-  }
+    this.places = (await axios.get('http://192.168.1.67:3333/api/places/around', {headers: {'auth-token': this.$store.getters.auth}})).data;
+    this.suggested = (await axios.get('http://192.168.1.67:3333/api/places/suggested', {headers: {'auth-token': this.$store.getters.auth}})).data;
+    let tags = (await axios.get('http://192.168.1.67:3333/api/places/users/tags', {headers: {'auth-token': this.$store.getters.auth}})).data;
+
+    tags.forEach(async (tag, index) => {
+      let data = (await axios.get(`http://192.168.1.67:3333/api/places/byTag/${tag}`, {headers: {'auth-token': this.$store.getters.auth}})).data;
+      this.tags.push({id: index, tag: tag, data: data});
+    });
+  },
 };
 </script>
 
